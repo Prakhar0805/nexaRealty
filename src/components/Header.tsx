@@ -1,24 +1,45 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Listings", href: "#listings" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { 
+    label: "Projects", 
+    href: "/projects",
+    subItems: [
+      { label: "Commercial Plots", href: "/projects/commercial-plots" },
+      { label: "Commercial Shops", href: "/projects/commercial-shops" },
+      { label: "Corporate Plots", href: "/projects/corporate-plots" },
+      { label: "Residential Flats", href: "/projects/residential-flats" },
+    ]
+  },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
+  const location = useLocation();
 
-  const scrollToSection = (href: string) => {
-    if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (href: string) => {
+    if (href.startsWith("/#")) {
+      const sectionId = href.substring(2);
+      if (location.pathname === "/") {
+        document.querySelector(`#${sectionId}`)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.href = href;
+      }
     }
     setMobileMenuOpen(false);
+    setProjectsOpen(false);
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/") return location.pathname === "/";
+    return location.pathname.startsWith(href);
   };
 
   return (
@@ -35,14 +56,58 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
+              <div key={item.label} className="relative group">
+                {item.subItems ? (
+                  <button
+                    className={`flex items-center gap-1 text-sm font-medium transition-colors relative ${
+                      isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown className="w-4 h-4" />
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`} />
+                  </button>
+                ) : item.href.startsWith("/#") ? (
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  </button>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`text-sm font-medium transition-colors relative ${
+                      isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {item.label}
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`} />
+                  </Link>
+                )}
+
+                {/* Dropdown */}
+                {item.subItems && (
+                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="bg-background border border-border rounded-lg shadow-lg py-2 min-w-[200px]">
+                      {item.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          to={subItem.href}
+                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -50,7 +115,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button 
               size="lg" 
-              onClick={() => scrollToSection("#contact")}
+              onClick={() => handleNavClick("/#contact")}
             >
               Schedule a Tour
             </Button>
@@ -69,20 +134,55 @@ const Header = () => {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-left text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                >
-                  {item.label}
-                </button>
+                <div key={item.label}>
+                  {item.subItems ? (
+                    <>
+                      <button
+                        onClick={() => setProjectsOpen(!projectsOpen)}
+                        className="flex items-center justify-between w-full text-left text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                      >
+                        {item.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${projectsOpen ? "rotate-180" : ""}`} />
+                      </button>
+                      {projectsOpen && (
+                        <div className="pl-4 space-y-1">
+                          {item.subItems.map((subItem) => (
+                            <Link
+                              key={subItem.href}
+                              to={subItem.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : item.href.startsWith("/#") ? (
+                    <button
+                      onClick={() => handleNavClick(item.href)}
+                      className="text-left text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 w-full"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
               <Button 
                 size="lg" 
                 className="mt-2"
-                onClick={() => scrollToSection("#contact")}
+                onClick={() => handleNavClick("/#contact")}
               >
                 Schedule a Tour
               </Button>

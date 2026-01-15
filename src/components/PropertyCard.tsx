@@ -4,21 +4,25 @@ import { Button } from "@/components/ui/button";
 interface PropertyCardProps {
   image: string;
   price: string;
-  address: string;
+  title: string;
   location: string;
-  beds: number;
-  baths: number;
-  sqft: string;
+  beds?: number;
+  baths?: number;
+  size: string;
+  isPlot?: boolean;
+  isShop?: boolean;
 }
 
-const PropertyCard = ({ image, price, address, location, beds, baths, sqft }: PropertyCardProps) => {
+const PropertyCard = ({ image, price, title, location, beds = 0, baths = 0, size, isPlot, isShop }: PropertyCardProps) => {
+  const showBedsBaths = !isPlot && beds > 0;
+
   return (
     <article className="group bg-card rounded-xl overflow-hidden hover-lift border border-border">
       {/* Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={image}
-          alt={address}
+          alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute top-4 left-4">
@@ -31,7 +35,7 @@ const PropertyCard = ({ image, price, address, location, beds, baths, sqft }: Pr
       {/* Content */}
       <div className="p-5">
         <h3 className="text-lg font-semibold text-foreground mb-1 line-clamp-1">
-          {address}
+          {title}
         </h3>
         
         <div className="flex items-center gap-1.5 text-muted-foreground mb-4">
@@ -41,17 +45,21 @@ const PropertyCard = ({ image, price, address, location, beds, baths, sqft }: Pr
 
         {/* Property Details */}
         <div className="flex items-center gap-4 pb-4 border-b border-border">
-          <div className="flex items-center gap-1.5">
-            <Bed className="w-4 h-4 text-muted-foreground" />
-            <span className="text-sm text-foreground">{beds} Beds</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Bath className="w-4 h-4 text-muted-foreground" />
-            <span className="text-sm text-foreground">{baths} Baths</span>
-          </div>
+          {showBedsBaths && (
+            <>
+              <div className="flex items-center gap-1.5">
+                <Bed className="w-4 h-4 text-muted-foreground" />
+                <span className="text-sm text-foreground">{beds} Beds</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Bath className="w-4 h-4 text-muted-foreground" />
+                <span className="text-sm text-foreground">{baths} Baths</span>
+              </div>
+            </>
+          )}
           <div className="flex items-center gap-1.5">
             <Square className="w-4 h-4 text-muted-foreground" />
-            <span className="text-sm text-foreground">{sqft}</span>
+            <span className="text-sm text-foreground">{size}</span>
           </div>
         </div>
 
