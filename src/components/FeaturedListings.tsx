@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PropertyCard from "./PropertyCard";
 import property1 from "@/assets/property-1.jpg";
 import property2 from "@/assets/property-2.jpg";
@@ -6,30 +7,30 @@ import property3 from "@/assets/property-3.jpg";
 const properties = [
   {
     image: property1,
-    price: "$2,450,000",
-    address: "Modern Villa with Garden",
-    location: "Pacific Heights, San Francisco",
-    beds: 5,
-    baths: 4,
-    sqft: "4,200 sqft",
+    price: "₹85,00,000",
+    title: "3 BHK Luxury Apartment",
+    location: "Sector 150, Noida",
+    beds: 3,
+    baths: 2,
+    size: "1,450 sq ft",
   },
   {
     image: property2,
-    price: "$1,890,000",
-    address: "Contemporary Loft Space",
-    location: "SoMa District, San Francisco",
-    beds: 3,
+    price: "₹65,00,000",
+    title: "2 BHK Modern Flat",
+    location: "Gaur City, Greater Noida",
+    beds: 2,
     baths: 2,
-    sqft: "2,800 sqft",
+    size: "1,100 sq ft",
   },
   {
     image: property3,
-    price: "$3,750,000",
-    address: "Penthouse with City Views",
-    location: "Nob Hill, San Francisco",
+    price: "₹1,25,00,000",
+    title: "4 BHK Penthouse",
+    location: "Sector 128, Noida",
     beds: 4,
     baths: 3,
-    sqft: "3,600 sqft",
+    size: "2,200 sq ft",
   },
 ];
 
@@ -56,9 +57,9 @@ const FeaturedListings = () => {
 
         {/* View All Link */}
         <div className="text-center mt-12">
-          <button className="text-primary font-medium hover:underline underline-offset-4 transition-all">
+          <Link to="/projects" className="text-primary font-medium hover:underline underline-offset-4 transition-all">
             View All Listings →
-          </button>
+          </Link>
         </div>
       </div>
     </section>
