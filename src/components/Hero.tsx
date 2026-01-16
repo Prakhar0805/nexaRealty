@@ -1,4 +1,3 @@
-import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-home.jpg";
 
@@ -54,22 +53,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Search Bar */}
-          <div className="animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <div className="flex items-center bg-background/95 backdrop-blur-sm rounded-lg p-2 shadow-xl max-w-xl">
-              <div className="flex-1 flex items-center gap-3 px-4">
-                <Search className="w-5 h-5 text-muted-foreground" />
-                <input
-                  type="text"
-                  placeholder="Search by location, property type..."
-                  className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground py-3"
-                />
-              </div>
-              <Button size="lg" className="hidden sm:flex">
-                Search
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
 

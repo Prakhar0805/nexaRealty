@@ -1,108 +1,137 @@
 import { Link } from "react-router-dom";
-import { MapPin, TrendingUp, Building, ArrowRight } from "lucide-react";
+import { MapPin, TrendingUp, Building, ArrowRight, Plane, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-home.jpg";
+import mapPlaceholder from "@/assets/yamuna-map-placeholder.jpg";
 
-const features = [
+const highlights = [
   {
-    icon: MapPin,
-    title: "Strategic Location",
-    description: "Direct connectivity to Noida, Greater Noida & upcoming Jewar Airport",
+    icon: Plane,
+    title: "Jewar Airport",
+    subtitle: "5 km proximity",
   },
   {
-    icon: TrendingUp,
-    title: "High ROI Potential",
-    description: "Rapidly appreciating land values with excellent investment returns",
+    icon: Car,
+    title: "Expressway",
+    subtitle: "Direct access",
   },
   {
     icon: Building,
-    title: "Development Hub",
-    description: "Upcoming Film City, F1 Track, and major infrastructure projects",
+    title: "Film City",
+    subtitle: "Upcoming project",
   },
 ];
 
 const YamunaExpresswaySection = () => {
   return (
-    <section className="relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Yamuna Expressway Development"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/70" />
-      </div>
+    <section className="bg-muted py-16 lg:py-24">
+      <div className="section-container">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 animate-fade-up">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-sm font-medium text-primary">Featured Investment</span>
+          </div>
 
-      <div className="relative z-10 section-container section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full mb-6 animate-fade-up">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-primary-foreground">Featured Investment</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            Yamuna Expressway
+            <span className="text-primary"> Premium Plots</span>
+          </h2>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            Invest in the future of Delhi-NCR. Prime plots with proximity to Jewar International Airport, Film City, and F1 Circuit.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-8 items-center">
+          {/* Map Section */}
+          <div className="lg:col-span-3 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-background">
+              <img
+                src={mapPlaceholder}
+                alt="Yamuna Expressway Map - Showing Jewar Airport, Greater Noida, and Delhi NCR connectivity"
+                className="w-full h-auto object-cover"
+              />
+              {/* Map Overlay Label */}
+              <div className="absolute bottom-4 left-4 right-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-foreground">Prime Location</p>
+                    <p className="text-sm text-muted-foreground">Yamuna Expressway, Greater Noida</p>
+                  </div>
+                </div>
+                <span className="text-xs text-muted-foreground hidden sm:block">*Replace with your actual map</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Info Section */}
+          <div className="lg:col-span-2 space-y-6 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+            {/* Highlights */}
+            <div className="grid grid-cols-3 gap-4">
+              {highlights.map((item) => (
+                <div
+                  key={item.title}
+                  className="text-center p-4 bg-background rounded-xl shadow-sm border border-border"
+                >
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-3">
+                    <item.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <p className="font-semibold text-foreground text-sm">{item.title}</p>
+                  <p className="text-xs text-muted-foreground">{item.subtitle}</p>
+                </div>
+              ))}
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-background mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              Yamuna Expressway
-              <br />
-              <span className="text-primary-foreground">Premium Plots</span>
-            </h2>
+            {/* Features List */}
+            <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+              <h3 className="font-semibold text-foreground mb-4">Why Invest Here?</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <TrendingUp className="w-5 h-5 text-primary mt-0.5" />
+                  <span className="text-muted-foreground text-sm">Rapidly appreciating land values with 15-20% yearly growth</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Building className="w-5 h-5 text-primary mt-0.5" />
+                  <span className="text-muted-foreground text-sm">Upcoming Film City, F1 Track & Metro connectivity</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Plane className="w-5 h-5 text-primary mt-0.5" />
+                  <span className="text-muted-foreground text-sm">5 km from upcoming Noida International Airport</span>
+                </li>
+              </ul>
+            </div>
 
-            <p className="text-lg text-background/80 mb-8 max-w-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              Invest in the future of Delhi-NCR. Prime plots along Yamuna Expressway with proximity to the upcoming Jewar International Airport, Film City, and F1 racing circuit.
-            </p>
+            {/* Pricing */}
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-sm text-muted-foreground">Starting from</p>
+                  <p className="text-2xl font-semibold text-foreground">₹15,000<span className="text-base font-normal">/sq yd</span></p>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm text-muted-foreground">Plot sizes</p>
+                  <p className="text-lg font-medium text-foreground">100 - 500 sq yd</p>
+                </div>
+              </div>
+            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              <Link to="/projects/commercial-plots">
-                <Button variant="hero" size="xl">
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/projects/commercial-plots" className="flex-1">
+                <Button className="w-full" size="lg">
                   Explore Plots
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Button 
-                variant="heroOutline" 
-                size="xl"
+                variant="outline" 
+                size="lg"
+                className="flex-1"
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Get Investment Guide
               </Button>
-            </div>
-          </div>
-
-          {/* Features */}
-          <div className="space-y-6 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                className="flex items-start gap-4 p-6 bg-background/10 backdrop-blur-sm rounded-lg border border-background/20"
-              >
-                <div className="p-3 bg-primary/20 rounded-lg">
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-background mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-background/70 text-sm">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-            {/* Price Highlight */}
-            <div className="p-6 bg-primary/30 backdrop-blur-sm rounded-lg border border-primary/40">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-background/70 text-sm mb-1">Starting from</p>
-                  <p className="text-2xl font-semibold text-background">₹15,000/sq yd</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-background/70 text-sm mb-1">Plot sizes</p>
-                  <p className="text-lg font-medium text-background">100 - 500 sq yd</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

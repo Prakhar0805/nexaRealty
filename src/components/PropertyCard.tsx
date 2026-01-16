@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 import { MapPin, Bed, Bath, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface PropertyCardProps {
+  id: string;
+  category: string;
   image: string;
   price: string;
   title: string;
@@ -13,8 +16,8 @@ interface PropertyCardProps {
   isShop?: boolean;
 }
 
-const PropertyCard = ({ image, price, title, location, beds = 0, baths = 0, size, isPlot, isShop }: PropertyCardProps) => {
-  const showBedsBaths = !isPlot && beds > 0;
+const PropertyCard = ({ id, category, image, price, title, location, beds = 0, baths = 0, size, isPlot, isShop }: PropertyCardProps) => {
+  const showBedsBaths = !isPlot && !isShop && beds > 0;
 
   return (
     <article className="group bg-card rounded-xl overflow-hidden hover-lift border border-border">
@@ -65,9 +68,11 @@ const PropertyCard = ({ image, price, title, location, beds = 0, baths = 0, size
 
         {/* Action */}
         <div className="pt-4">
-          <Button variant="outline" className="w-full">
-            View Details
-          </Button>
+          <Link to={`/projects/${category}/${id}`}>
+            <Button variant="outline" className="w-full">
+              View Details
+            </Button>
+          </Link>
         </div>
       </div>
     </article>
