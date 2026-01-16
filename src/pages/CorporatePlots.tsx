@@ -7,6 +7,8 @@ import property3 from "@/assets/property-3.jpg";
 
 const properties = [
   {
+    id: "crp-1",
+    category: "corporate-plots",
     image: property1,
     price: "₹2,50,00,000",
     title: "IT Park Plot - Knowledge Park",
@@ -17,6 +19,8 @@ const properties = [
     isPlot: true,
   },
   {
+    id: "crp-2",
+    category: "corporate-plots",
     image: property2,
     price: "₹3,80,00,000",
     title: "Corporate Office Land - Tech Zone",
@@ -27,6 +31,8 @@ const properties = [
     isPlot: true,
   },
   {
+    id: "crp-3",
+    category: "corporate-plots",
     image: property3,
     price: "₹5,20,00,000",
     title: "Premium Corporate Plot - SEZ",
@@ -37,6 +43,8 @@ const properties = [
     isPlot: true,
   },
   {
+    id: "crp-4",
+    category: "corporate-plots",
     image: property1,
     price: "₹1,80,00,000",
     title: "Corporate Land Near Expressway",
@@ -47,6 +55,8 @@ const properties = [
     isPlot: true,
   },
   {
+    id: "crp-5",
+    category: "corporate-plots",
     image: property2,
     price: "₹4,50,00,000",
     title: "Business Park Plot",
@@ -57,6 +67,8 @@ const properties = [
     isPlot: true,
   },
   {
+    id: "crp-6",
+    category: "corporate-plots",
     image: property3,
     price: "₹2,20,00,000",
     title: "Industrial Corporate Land",
