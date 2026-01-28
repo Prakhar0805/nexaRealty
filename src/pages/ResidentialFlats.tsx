@@ -1,80 +1,14 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
-
-const properties = [
-  {
-    id: "rf-1",
-    category: "residential-flats",
-    image: property1,
-    price: "₹95,00,000",
-    title: "3 BHK Luxury Flat - Sector 150",
-    beds: 3,
-    baths: 2,
-    size: "1,650 sq ft",
-    location: "Sector 150, Noida",
-  },
-  {
-    id: "rf-2",
-    category: "residential-flats",
-    image: property2,
-    price: "₹1,45,00,000",
-    title: "4 BHK Premium Apartment",
-    beds: 4,
-    baths: 3,
-    size: "2,400 sq ft",
-    location: "Sector 128, Noida",
-  },
-  {
-    id: "rf-3",
-    category: "residential-flats",
-    image: property3,
-    price: "₹68,00,000",
-    title: "2 BHK Modern Flat",
-    beds: 2,
-    baths: 2,
-    size: "1,200 sq ft",
-    location: "Sector 137, Noida",
-  },
-  {
-    id: "rf-4",
-    category: "residential-flats",
-    image: property1,
-    price: "₹1,85,00,000",
-    title: "5 BHK Penthouse",
-    beds: 5,
-    baths: 4,
-    size: "3,800 sq ft",
-    location: "Golf Course Extension, Noida",
-  },
-  {
-    id: "rf-5",
-    category: "residential-flats",
-    image: property2,
-    price: "₹55,00,000",
-    title: "1 BHK Smart Apartment",
-    beds: 1,
-    baths: 1,
-    size: "650 sq ft",
-    location: "Sector 75, Noida",
-  },
-  {
-    id: "rf-6",
-    category: "residential-flats",
-    image: property3,
-    price: "₹78,00,000",
-    title: "3 BHK Family Apartment",
-    beds: 3,
-    baths: 2,
-    size: "1,450 sq ft",
-    location: "Sector 120, Noida",
-  },
-];
+import PropertyFilters from "@/components/PropertyFilters";
+import { allProperties } from "@/data/properties";
 
 const ResidentialFlats = () => {
+  const properties = allProperties["residential-flats"] || [];
+  const [filteredProperties, setFilteredProperties] = useState(properties);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -89,16 +23,35 @@ const ResidentialFlats = () => {
             </p>
           </div>
 
+          <PropertyFilters
+            properties={properties}
+            onFilteredPropertiesChange={setFilteredProperties}
+            category="residential-flats"
+          />
+
+          <div className="mb-6">
+            <p className="text-muted-foreground">
+              Showing {filteredProperties.length} {filteredProperties.length === 1 ? 'property' : 'properties'}
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property, index) => (
-              <div
-                key={index}
-                className="animate-fade-up"
-                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
-              >
-                <PropertyCard {...property} />
+            {filteredProperties.length === 0 ? (
+              <div className="col-span-full py-12 text-center">
+                <h3 className="text-xl font-medium text-muted-foreground mb-2">No properties found</h3>
+                <p className="text-muted-foreground">Try adjusting your filters</p>
               </div>
-            ))}
+            ) : (
+              filteredProperties.map((property, index) => (
+                <div
+                  key={property.id}
+                  className="animate-fade-up"
+                  style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                >
+                  <PropertyCard {...property} />
+                </div>
+              ))
+            )}
           </div>
         </section>
       </main>

@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@havenrealty.com",
+    value: "hello@nexarealty.com",
     subtext: "We reply within 24hrs",
   },
   {
@@ -52,15 +52,15 @@ const ContactSection = () => {
       <div className="section-container relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 animate-fade-up">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-base mb-6 animate-fade-up">
             <MessageCircle className="w-4 h-4" />
             Get in Touch
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Let's Start the
             <span className="text-primary"> Conversation</span>
           </h2>
-          <p className="text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Ready to find your dream property? We'd love to hear from you. Reach out and let's discuss how we can help.
           </p>
         </div>
@@ -78,9 +78,9 @@ const ContactSection = () => {
                   <item.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground mb-1">{item.label}</div>
-                  <div className="text-foreground font-semibold text-lg">{item.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{item.subtext}</div>
+                  <div className="text-base text-muted-foreground mb-1">{item.label}</div>
+                  <div className="text-foreground font-semibold text-xl">{item.value}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{item.subtext}</div>
                 </div>
               </div>
             ))}
@@ -89,9 +89,9 @@ const ContactSection = () => {
             <div className="p-5 rounded-2xl bg-primary/5 border border-primary/20">
               <div className="flex items-center gap-3 mb-3">
                 <Clock className="w-5 h-5 text-primary" />
-                <span className="font-semibold text-foreground">Quick Response Guaranteed</span>
+                <span className="text-lg font-semibold text-foreground">Quick Response Guaranteed</span>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 We typically respond within 2-4 hours during business hours. For urgent inquiries, give us a call!
               </p>
             </div>
@@ -108,10 +108,10 @@ const ContactSection = () => {
                   <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 animate-fade-up">
                     <CheckCircle className="w-10 h-10 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-3 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+                  <h3 className="text-3xl font-semibold text-foreground mb-3 animate-fade-up" style={{ animationDelay: "0.1s" }}>
                     Thank You!
                   </h3>
-                  <p className="text-muted-foreground max-w-sm animate-fade-up" style={{ animationDelay: "0.2s" }}>
+                  <p className="text-lg text-muted-foreground max-w-sm animate-fade-up" style={{ animationDelay: "0.2s" }}>
                     We've received your message and will get back to you within 24 hours. Keep an eye on your inbox!
                   </p>
                   <Button 
@@ -127,7 +127,7 @@ const ContactSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-5 relative">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="fullName" className="block text-base font-medium text-foreground mb-2">
                         Full Name <span className="text-primary">*</span>
                       </label>
                       <Input
@@ -143,7 +143,7 @@ const ContactSection = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="phone" className="block text-base font-medium text-foreground mb-2">
                         Phone Number
                       </label>
                       <Input
@@ -159,7 +159,7 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="email" className="block text-base font-medium text-foreground mb-2">
                       Email Address <span className="text-primary">*</span>
                     </label>
                     <Input
@@ -175,7 +175,7 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="message" className="block text-base font-medium text-foreground mb-2">
                       Your Message <span className="text-primary">*</span>
                     </label>
                     <Textarea
@@ -195,7 +195,7 @@ const ContactSection = () => {
                     <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center">
+                  <p className="text-sm text-muted-foreground text-center">
                     By submitting this form, you agree to our privacy policy. We'll never share your information.
                   </p>
                 </form>

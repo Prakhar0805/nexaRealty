@@ -1,16 +1,12 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import PropertyFilters from "@/components/PropertyFilters";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
-import { useState, useEffect } from "react";
-
 import { allProperties } from "@/data/properties";
 
-const CommercialPlots = () => {
-  const properties = allProperties["commercial-plots"] || [];
+const JewarAirportLand = () => {
+  const properties = allProperties["jewar-airport-land"] || [];
   const [filteredProperties, setFilteredProperties] = useState(properties);
 
   return (
@@ -20,17 +16,17 @@ const CommercialPlots = () => {
         <section className="section-container section-padding">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h1 className="text-4xl sm:text-5xl font-semibold text-foreground mb-6 animate-fade-up">
-              Commercial Plots
+              Jewar Airport Land
             </h1>
             <p className="text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              Prime commercial land for your business ventures in strategic locations
+              Strategic land parcels around Noida International Airport ideal for long-term investment.
             </p>
           </div>
 
           <PropertyFilters
             properties={properties}
             onFilteredPropertiesChange={setFilteredProperties}
-            category="commercial-plots"
+            category="jewar-airport-land"
           />
 
           <div className="mb-6">
@@ -64,4 +60,4 @@ const CommercialPlots = () => {
   );
 };
 
-export default CommercialPlots;
+export default JewarAirportLand;

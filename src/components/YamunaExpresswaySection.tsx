@@ -29,15 +29,15 @@ const YamunaExpresswaySection = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 animate-fade-up">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-primary">Featured Investment</span>
+            <span className="text-base font-medium text-primary">Featured Investment</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Yamuna Expressway
             <span className="text-primary"> Premium Plots</span>
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Invest in the future of Delhi-NCR. Prime plots with proximity to Jewar International Airport, Film City, and F1 Circuit.
           </p>
         </div>
@@ -77,27 +77,27 @@ const YamunaExpresswaySection = () => {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-3">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <p className="font-semibold text-foreground text-sm">{item.title}</p>
-                  <p className="text-xs text-muted-foreground">{item.subtitle}</p>
+                  <p className="font-semibold text-foreground text-base">{item.title}</p>
+                  <p className="text-sm text-muted-foreground">{item.subtitle}</p>
                 </div>
               ))}
             </div>
 
             {/* Features List */}
             <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
-              <h3 className="font-semibold text-foreground mb-4">Why Invest Here?</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Why Invest Here?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-primary mt-0.5" />
-                  <span className="text-muted-foreground text-sm">Rapidly appreciating land values with 15-20% yearly growth</span>
+                  <span className="text-muted-foreground text-base">Rapidly appreciating land values with 15-20% yearly growth</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Building className="w-5 h-5 text-primary mt-0.5" />
-                  <span className="text-muted-foreground text-sm">Upcoming Film City, F1 Track & Metro connectivity</span>
+                  <span className="text-muted-foreground text-base">Upcoming Film City, F1 Track & Metro connectivity</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Plane className="w-5 h-5 text-primary mt-0.5" />
-                  <span className="text-muted-foreground text-sm">5 km from upcoming Noida International Airport</span>
+                  <span className="text-muted-foreground text-base">5 km from upcoming Noida International Airport</span>
                 </li>
               </ul>
             </div>
@@ -106,12 +106,12 @@ const YamunaExpresswaySection = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-sm text-muted-foreground">Starting from</p>
-                  <p className="text-2xl font-semibold text-foreground">₹15,000<span className="text-base font-normal">/sq yd</span></p>
+                  <p className="text-base text-muted-foreground">Starting from</p>
+                  <p className="text-3xl font-semibold text-foreground">₹15,000<span className="text-lg font-normal">/sq yd</span></p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-muted-foreground">Plot sizes</p>
-                  <p className="text-lg font-medium text-foreground">100 - 500 sq yd</p>
+                  <p className="text-base text-muted-foreground">Plot sizes</p>
+                  <p className="text-xl font-medium text-foreground">100 - 500 sq yd</p>
                 </div>
               </div>
             </div>

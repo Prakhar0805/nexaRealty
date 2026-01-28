@@ -1,86 +1,14 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
-
-const properties = [
-  {
-    id: "crp-1",
-    category: "corporate-plots",
-    image: property1,
-    price: "₹2,50,00,000",
-    title: "IT Park Plot - Knowledge Park",
-    beds: 0,
-    baths: 0,
-    size: "10,000 sq ft",
-    location: "Knowledge Park V, Greater Noida",
-    isPlot: true,
-  },
-  {
-    id: "crp-2",
-    category: "corporate-plots",
-    image: property2,
-    price: "₹3,80,00,000",
-    title: "Corporate Office Land - Tech Zone",
-    beds: 0,
-    baths: 0,
-    size: "15,000 sq ft",
-    location: "Tech Zone IV, Greater Noida",
-    isPlot: true,
-  },
-  {
-    id: "crp-3",
-    category: "corporate-plots",
-    image: property3,
-    price: "₹5,20,00,000",
-    title: "Premium Corporate Plot - SEZ",
-    beds: 0,
-    baths: 0,
-    size: "20,000 sq ft",
-    location: "Noida SEZ",
-    isPlot: true,
-  },
-  {
-    id: "crp-4",
-    category: "corporate-plots",
-    image: property1,
-    price: "₹1,80,00,000",
-    title: "Corporate Land Near Expressway",
-    beds: 0,
-    baths: 0,
-    size: "8,000 sq ft",
-    location: "Yamuna Expressway",
-    isPlot: true,
-  },
-  {
-    id: "crp-5",
-    category: "corporate-plots",
-    image: property2,
-    price: "₹4,50,00,000",
-    title: "Business Park Plot",
-    beds: 0,
-    baths: 0,
-    size: "18,000 sq ft",
-    location: "Sector 132, Noida",
-    isPlot: true,
-  },
-  {
-    id: "crp-6",
-    category: "corporate-plots",
-    image: property3,
-    price: "₹2,20,00,000",
-    title: "Industrial Corporate Land",
-    beds: 0,
-    baths: 0,
-    size: "12,000 sq ft",
-    location: "Ecotech III, Greater Noida",
-    isPlot: true,
-  },
-];
+import PropertyFilters from "@/components/PropertyFilters";
+import { allProperties } from "@/data/properties";
 
 const CorporatePlots = () => {
+  const properties = allProperties["corporate-plots"] || [];
+  const [filteredProperties, setFilteredProperties] = useState(properties);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -95,16 +23,35 @@ const CorporatePlots = () => {
             </p>
           </div>
 
+          <PropertyFilters
+            properties={properties}
+            onFilteredPropertiesChange={setFilteredProperties}
+            category="corporate-plots"
+          />
+
+          <div className="mb-6">
+            <p className="text-muted-foreground">
+              Showing {filteredProperties.length} {filteredProperties.length === 1 ? 'property' : 'properties'}
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property, index) => (
-              <div
-                key={index}
-                className="animate-fade-up"
-                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
-              >
-                <PropertyCard {...property} />
+            {filteredProperties.length === 0 ? (
+              <div className="col-span-full py-12 text-center">
+                <h3 className="text-xl font-medium text-muted-foreground mb-2">No properties found</h3>
+                <p className="text-muted-foreground">Try adjusting your filters</p>
               </div>
-            ))}
+            ) : (
+              filteredProperties.map((property, index) => (
+                <div
+                  key={property.id}
+                  className="animate-fade-up"
+                  style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                >
+                  <PropertyCard {...property} />
+                </div>
+              ))
+            )}
           </div>
         </section>
       </main>

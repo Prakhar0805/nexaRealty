@@ -26,37 +26,31 @@ const AboutSection = () => {
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-      
+
       <div className="section-container relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 animate-fade-up">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-base mb-6 animate-fade-up">
             <span className="w-2 h-2 bg-primary rounded-full" />
-            About Haven
+            About Nexa Realty
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Your Trusted Partner in
             <span className="text-primary"> Finding Home</span>
           </h2>
-          <p className="text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
             With over 15 years of experience in luxury real estate, we've helped hundreds of families find their perfect home.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image Section */}
+          {/* Image Section - Placeholder */}
           <div className="relative animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <div className="relative">
-              {/* Main Image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src={agentPortrait}
-                  alt="Haven Real Estate Team"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
-                
+              {/* Main Image Placeholder */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-muted h-[500px] w-full flex items-center justify-center border border-border">
+                <p className="text-muted-foreground">Image Placeholder</p>
+
                 {/* Floating Card */}
                 <div className="absolute bottom-6 left-6 right-6 bg-background/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl">
                   <div className="flex items-center gap-4">
@@ -80,10 +74,10 @@ const AboutSection = () => {
           {/* Content Section */}
           <div className="animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <div className="space-y-6 text-muted-foreground mb-10">
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed">
                 We believe that finding the right property is about more than square footage—it's about finding where your life unfolds. Our personalized approach means we take the time to understand your unique needs, lifestyle, and aspirations.
               </p>
-              <p className="leading-relaxed">
+              <p className="text-lg leading-relaxed">
                 From first viewing to final closing, we're with you every step of the way, ensuring a smooth and memorable journey to your new home.
               </p>
             </div>
@@ -91,7 +85,7 @@ const AboutSection = () => {
             {/* Values */}
             <div className="space-y-4 mb-10">
               {values.map((value, index) => (
-                <div 
+                <div
                   key={value.title}
                   className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
                 >
@@ -99,8 +93,8 @@ const AboutSection = () => {
                     <value.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">{value.title}</h3>
-                    <p className="text-sm text-muted-foreground">{value.description}</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">{value.title}</h3>
+                    <p className="text-base text-muted-foreground">{value.description}</p>
                   </div>
                 </div>
               ))}
@@ -109,17 +103,17 @@ const AboutSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
               {stats.map((stat, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="text-center p-5 rounded-2xl bg-gradient-to-br from-muted to-muted/50 border border-border/50"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                     <stat.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
+                  <div className="text-3xl sm:text-4xl font-bold text-foreground">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">
+                  <div className="text-sm text-muted-foreground mt-1">
                     {stat.label}
                   </div>
                 </div>

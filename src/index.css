@@ -78,6 +78,10 @@
     @apply border-border;
   }
 
+  html {
+    font-size: 20px;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "kern" 1, "liga" 1;

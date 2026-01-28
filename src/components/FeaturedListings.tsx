@@ -4,41 +4,13 @@ import property1 from "@/assets/property-1.jpg";
 import property2 from "@/assets/property-2.jpg";
 import property3 from "@/assets/property-3.jpg";
 
+import { allProperties } from "@/data/properties";
+
 const properties = [
-  {
-    id: "rf-1",
-    category: "residential-flats",
-    image: property1,
-    price: "₹95,00,000",
-    title: "3 BHK Luxury Apartment",
-    location: "Sector 150, Noida",
-    beds: 3,
-    baths: 2,
-    size: "1,650 sq ft",
-  },
-  {
-    id: "rf-2",
-    category: "residential-flats",
-    image: property2,
-    price: "₹1,45,00,000",
-    title: "4 BHK Premium Apartment",
-    location: "Sector 128, Noida",
-    beds: 4,
-    baths: 3,
-    size: "2,400 sq ft",
-  },
-  {
-    id: "rf-3",
-    category: "residential-flats",
-    image: property3,
-    price: "₹68,00,000",
-    title: "2 BHK Modern Flat",
-    location: "Sector 137, Noida",
-    beds: 2,
-    baths: 2,
-    size: "1,200 sq ft",
-  },
-];
+  allProperties["residential-flats"][0],
+  allProperties["residential-flats"][1],
+  allProperties["residential-flats"][2],
+].filter(Boolean);
 
 const FeaturedListings = () => {
   return (
@@ -46,10 +18,10 @@ const FeaturedListings = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-foreground mb-4">
             Featured Properties
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-xl">
             Explore our handpicked selection of exceptional homes, each offering unique character and premium amenities.
           </p>
         </div>
@@ -63,7 +35,7 @@ const FeaturedListings = () => {
 
         {/* View All Link */}
         <div className="text-center mt-12">
-          <Link to="/projects" className="text-primary font-medium hover:underline underline-offset-4 transition-all">
+          <Link to="/projects" className="text-primary text-lg font-medium hover:underline underline-offset-4 transition-all">
             View All Listings →
           </Link>
         </div>
