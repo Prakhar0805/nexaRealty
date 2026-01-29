@@ -3,19 +3,23 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Square, Bed, Bath, ArrowLeft, Phone, Mail, Check } from "lucide-react";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
-
-// Centralized property data - in a real app, this would come from an API
-import { allProperties } from "@/data/properties";
+import { useProperty } from "@/hooks/useProperties";
 
 const PropertyDetail = () => {
   const { category, propertyId } = useParams();
+  const { property, loading } = useProperty(propertyId);
 
-  const categoryKey = category as keyof typeof allProperties;
-  const properties = allProperties[categoryKey] || [];
-  const property = properties.find((p) => p.id === propertyId);
+  if (loading) {
+    return (
+      <div className="min-h-screen">
+        <Header />
+        <main className="pt-20 section-container section-padding text-center">
+          <p>Loading details...</p>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!property) {
     return (
@@ -70,7 +74,7 @@ const PropertyDetail = () => {
             <Link to="/projects" className="hover:text-foreground transition-colors">Projects</Link>
             <span>/</span>
             <Link to={`/projects/${category}`} className="hover:text-foreground transition-colors">
-              {categoryNames[categoryKey] || category}
+              {category ? (categoryNames[category] || category) : "Category"}
             </Link>
             <span>/</span>
             <span className="text-foreground">{property.title}</span>
@@ -180,7 +184,7 @@ const PropertyDetail = () => {
           <Link to={`/projects/${category}`}>
             <Button variant="outline">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to {categoryNames[categoryKey] || "Listings"}
+              Back to {category ? (categoryNames[category] || "Listings") : "Listings"}
             </Button>
           </Link>
         </section>

@@ -23,6 +23,7 @@ import RayaHeritageCity from "./pages/RayaHeritageCity";
 import MasterPlan from "./pages/MasterPlan";
 import PropertyDetail from "./pages/PropertyDetail";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/projects/land-for-hotel" element={<LandForHotel />} />
           <Route path="/projects/raya-heritage-city" element={<RayaHeritageCity />} />
           <Route path="/projects/master-plan" element={<MasterPlan />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/projects/:category/:propertyId" element={<PropertyDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
