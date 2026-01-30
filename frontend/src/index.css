@@ -79,15 +79,21 @@
   }
 
   html {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "kern" 1, "liga" 1;
+    zoom: 0.9;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading tracking-tight;
   }
 }
@@ -129,6 +135,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -139,6 +146,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
