@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { 
-    label: "Projects", 
+  {
+    label: "Projects",
     href: "/projects",
     subItems: [
       { label: "Commercial Plots", href: "/projects/commercial-plots" },
@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="section-container">
-        <nav className="flex items-center justify-between h-20 lg:h-24">
+        <nav className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <span className="text-2xl lg:text-3xl font-semibold tracking-tight text-foreground">
@@ -70,15 +70,13 @@ const Header = () => {
               <div key={item.label} className="relative group">
                 {item.subItems ? (
                   <button
-                    className={`flex items-center gap-1 text-base lg:text-lg font-medium transition-colors relative ${
-                      isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                    }`}
+                    className={`flex items-center gap-1 text-base lg:text-lg font-medium transition-colors relative ${isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                      }`}
                   >
                     {item.label}
                     <ChevronDown className="w-4 h-4" />
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
-                    }`} />
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                      }`} />
                   </button>
                 ) : item.href.startsWith("/#") ? (
                   <button
@@ -91,14 +89,12 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-base lg:text-lg font-medium transition-colors relative ${
-                      isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                    }`}
+                    className={`text-base lg:text-lg font-medium transition-colors relative ${isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                      }`}
                   >
                     {item.label}
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
-                    }`} />
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                      }`} />
                   </Link>
                 )}
 
@@ -124,8 +120,8 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => handleNavClick("/#contact")}
             >
               Schedule a Tour
@@ -190,8 +186,8 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="mt-2"
                 onClick={() => handleNavClick("/#contact")}
               >

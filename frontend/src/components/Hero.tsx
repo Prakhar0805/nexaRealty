@@ -25,27 +25,27 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 section-container w-full">
         <div className="max-w-2xl pt-20 lg:pt-0">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-background leading-tight mb-6 animate-fade-up">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-background leading-tight mb-6 animate-fade-up">
             Find Your Perfect
             <br />
             <span className="text-primary-foreground">Place to Call Home</span>
           </h1>
-          
+
           <p className="text-xl sm:text-2xl text-background/80 mb-8 max-w-lg animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Discover exceptional properties curated for discerning buyers. Let us guide you to your dream home.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            <Button 
-              variant="hero" 
+            <Button
+              variant="hero"
               size="xl"
               onClick={scrollToListings}
             >
               Explore Properties
             </Button>
-            <Button 
-              variant="heroOutline" 
+            <Button
+              variant="heroOutline"
               size="xl"
               onClick={scrollToContact}
             >
