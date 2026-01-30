@@ -56,11 +56,11 @@ const ContactSection = () => {
             <MessageCircle className="w-4 h-4" />
             Get in Touch
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Let's Start the
             <span className="text-primary"> Conversation</span>
           </h2>
-          <p className="text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-base text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Ready to find your dream property? We'd love to hear from you. Reach out and let's discuss how we can help.
           </p>
         </div>
@@ -79,7 +79,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-base text-muted-foreground mb-1">{item.label}</div>
-                  <div className="text-foreground font-semibold text-lg">{item.value}</div>
+                  <div className="text-foreground font-semibold text-base">{item.value}</div>
                   <div className="text-sm text-muted-foreground mt-1">{item.subtext}</div>
                 </div>
               </div>
@@ -127,7 +127,7 @@ const ContactSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-5 relative">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="fullName" className="block text-base font-medium text-foreground mb-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-foreground mb-1.5">
                         Full Name <span className="text-primary">*</span>
                       </label>
                       <Input
@@ -138,12 +138,12 @@ const ContactSection = () => {
                         value={formData.fullName}
                         onChange={handleChange}
                         required
-                        className="h-12 rounded-xl bg-muted/50 border-border focus:border-primary focus:ring-primary"
+                        className="h-10 rounded-lg bg-muted/50 border-border focus:border-primary focus:ring-primary text-sm"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-base font-medium text-foreground mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
                         Phone Number
                       </label>
                       <Input
@@ -153,13 +153,13 @@ const ContactSection = () => {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="h-12 rounded-xl bg-muted/50 border-border focus:border-primary focus:ring-primary"
+                        className="h-10 rounded-lg bg-muted/50 border-border focus:border-primary focus:ring-primary text-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-base font-medium text-foreground mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
                       Email Address <span className="text-primary">*</span>
                     </label>
                     <Input
@@ -170,12 +170,12 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="h-12 rounded-xl bg-muted/50 border-border focus:border-primary focus:ring-primary"
+                      className="h-10 rounded-lg bg-muted/50 border-border focus:border-primary focus:ring-primary text-sm"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-base font-medium text-foreground mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
                       Your Message <span className="text-primary">*</span>
                     </label>
                     <Textarea
@@ -185,14 +185,14 @@ const ContactSection = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={5}
-                      className="resize-none rounded-xl bg-muted/50 border-border focus:border-primary focus:ring-primary"
+                      rows={4}
+                      className="resize-none rounded-lg bg-muted/50 border-border focus:border-primary focus:ring-primary text-sm"
                     />
                   </div>
 
-                  <Button type="submit" size="xl" className="w-full rounded-xl group">
+                  <Button type="submit" size="lg" className="w-full rounded-lg group">
                     <span>Send Message</span>
-                    <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">

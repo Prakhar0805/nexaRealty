@@ -32,12 +32,12 @@ const YamunaExpresswaySection = () => {
             <span className="text-base font-medium text-primary">Featured Investment</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-3 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Yamuna Expressway
             <span className="text-primary"> Premium Plots</span>
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Invest in the future of Delhi-NCR. Prime plots with proximity to Jewar International Airport, Film City, and F1 Circuit.
           </p>
         </div>

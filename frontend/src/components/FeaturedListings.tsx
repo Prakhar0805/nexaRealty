@@ -13,10 +13,10 @@ const FeaturedListings = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-3">
             Featured Properties
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base">
             Explore our handpicked selection of exceptional homes, each offering unique character and premium amenities.
           </p>
         </div>

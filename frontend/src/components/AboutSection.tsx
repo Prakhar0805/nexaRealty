@@ -34,11 +34,11 @@ const AboutSection = () => {
             <span className="w-2 h-2 bg-primary rounded-full" />
             About Nexa Realty
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Your Trusted Partner in
             <span className="text-primary"> Finding Home</span>
           </h2>
-          <p className="text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-base text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
             With over 15 years of experience in luxury real estate, we've helped hundreds of families find their perfect home.
           </p>
         </div>
@@ -74,10 +74,10 @@ const AboutSection = () => {
           {/* Content Section */}
           <div className="animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <div className="space-y-6 text-muted-foreground mb-10">
-              <p className="text-lg leading-relaxed">
+              <p className="text-base leading-relaxed">
                 We believe that finding the right property is about more than square footage—it's about finding where your life unfolds. Our personalized approach means we take the time to understand your unique needs, lifestyle, and aspirations.
               </p>
-              <p className="text-base leading-relaxed">
+              <p className="text-sm leading-relaxed">
                 From first viewing to final closing, we're with you every step of the way, ensuring a smooth and memorable journey to your new home.
               </p>
             </div>
