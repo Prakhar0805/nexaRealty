@@ -48,7 +48,7 @@ const ContactSection = () => {
       {/* Decorative Elements */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
-      
+
       <div className="section-container relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -56,11 +56,11 @@ const ContactSection = () => {
             <MessageCircle className="w-4 h-4" />
             Get in Touch
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Let's Start the
             <span className="text-primary"> Conversation</span>
           </h2>
-          <p className="text-xl text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Ready to find your dream property? We'd love to hear from you. Reach out and let's discuss how we can help.
           </p>
         </div>
@@ -70,7 +70,7 @@ const ContactSection = () => {
           <div className="lg:col-span-2 space-y-6 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             {/* Contact Cards */}
             {contactInfo.map((item, index) => (
-              <div 
+              <div
                 key={item.label}
                 className="group flex items-start gap-4 p-5 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               >
@@ -79,7 +79,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-base text-muted-foreground mb-1">{item.label}</div>
-                  <div className="text-foreground font-semibold text-xl">{item.value}</div>
+                  <div className="text-foreground font-semibold text-lg">{item.value}</div>
                   <div className="text-sm text-muted-foreground mt-1">{item.subtext}</div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const ContactSection = () => {
             <div className="bg-background rounded-3xl p-6 sm:p-8 shadow-xl border border-border relative overflow-hidden">
               {/* Form Background Decoration */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
-              
+
               {submitted ? (
                 <div className="flex flex-col items-center justify-center h-full text-center py-16 relative">
                   <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 animate-fade-up">
@@ -114,9 +114,9 @@ const ContactSection = () => {
                   <p className="text-lg text-muted-foreground max-w-sm animate-fade-up" style={{ animationDelay: "0.2s" }}>
                     We've received your message and will get back to you within 24 hours. Keep an eye on your inbox!
                   </p>
-                  <Button 
-                    variant="outline" 
-                    className="mt-6 animate-fade-up" 
+                  <Button
+                    variant="outline"
+                    className="mt-6 animate-fade-up"
                     style={{ animationDelay: "0.3s" }}
                     onClick={() => setSubmitted(false)}
                   >

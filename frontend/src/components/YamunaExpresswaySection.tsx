@@ -23,7 +23,7 @@ const highlights = [
 
 const YamunaExpresswaySection = () => {
   return (
-    <section className="bg-muted py-16 lg:py-24">
+    <section className="bg-muted py-12 lg:py-20 text-sm md:text-base">
       <div className="section-container">
         {/* Header */}
         <div className="text-center mb-12">
@@ -32,12 +32,12 @@ const YamunaExpresswaySection = () => {
             <span className="text-base font-medium text-primary">Featured Investment</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Yamuna Expressway
             <span className="text-primary"> Premium Plots</span>
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Invest in the future of Delhi-NCR. Prime plots with proximity to Jewar International Airport, Film City, and F1 Circuit.
           </p>
         </div>
@@ -124,8 +124,8 @@ const YamunaExpresswaySection = () => {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
                 className="flex-1"
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
