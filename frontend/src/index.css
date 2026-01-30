@@ -79,13 +79,12 @@
   }
 
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "kern" 1, "liga" 1;
-    zoom: 0.9;
   }
 
   h1,
