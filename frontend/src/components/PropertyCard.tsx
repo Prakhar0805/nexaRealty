@@ -28,48 +28,48 @@ const PropertyCard = ({ id, category, image, price, title, location, beds = 0, b
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute top-4 left-4">
-          <span className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-sm font-semibold">
+        <div className="absolute top-3 left-3">
+          <span className="bg-primary text-primary-foreground px-2 py-1 rounded-md text-xs font-semibold">
             {price}
           </span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-5">
-        <h3 className="text-lg font-semibold text-foreground mb-1 line-clamp-1">
+      <div className="p-4">
+        <h3 className="text-base font-semibold text-foreground mb-1 line-clamp-1">
           {title}
         </h3>
-        
-        <div className="flex items-center gap-1.5 text-muted-foreground mb-4">
-          <MapPin className="w-4 h-4" />
-          <span className="text-sm">{location}</span>
+
+        <div className="flex items-center gap-1 text-muted-foreground mb-3">
+          <MapPin className="w-3.5 h-3.5" />
+          <span className="text-xs">{location}</span>
         </div>
 
         {/* Property Details */}
-        <div className="flex items-center gap-4 pb-4 border-b border-border">
+        <div className="flex items-center gap-3 pb-3 border-b border-border">
           {showBedsBaths && (
             <>
-              <div className="flex items-center gap-1.5">
-                <Bed className="w-4 h-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">{beds} Beds</span>
+              <div className="flex items-center gap-1">
+                <Bed className="w-3.5 h-3.5 text-muted-foreground" />
+                <span className="text-xs text-foreground">{beds} Beds</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Bath className="w-4 h-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">{baths} Baths</span>
+              <div className="flex items-center gap-1">
+                <Bath className="w-3.5 h-3.5 text-muted-foreground" />
+                <span className="text-xs text-foreground">{baths} Baths</span>
               </div>
             </>
           )}
-          <div className="flex items-center gap-1.5">
-            <Square className="w-4 h-4 text-muted-foreground" />
-            <span className="text-sm text-foreground">{size}</span>
+          <div className="flex items-center gap-1">
+            <Square className="w-3.5 h-3.5 text-muted-foreground" />
+            <span className="text-xs text-foreground">{size}</span>
           </div>
         </div>
 
         {/* Action */}
-        <div className="pt-4">
+        <div className="pt-3">
           <Link to={`/projects/${category}/${id}`}>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" size="sm" className="w-full text-xs h-9">
               View Details
             </Button>
           </Link>

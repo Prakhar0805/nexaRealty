@@ -81,6 +81,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "kern" 1, "liga" 1;
+    overflow-x: hidden;
   }
 
   h1,
@@ -145,5 +146,26 @@
     to {
       opacity: 1;
     }
+  }
+
+  .whatsapp-float {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    z-index: 9999 !important;
+    background-color: #25D366 !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1) !important;
+    background-color: #20ba5a !important;
   }
 }

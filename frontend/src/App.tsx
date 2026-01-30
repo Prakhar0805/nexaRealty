@@ -24,6 +24,7 @@ import MasterPlan from "./pages/MasterPlan";
 import PropertyDetail from "./pages/PropertyDetail";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/AdminDashboard";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <WhatsAppButton />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

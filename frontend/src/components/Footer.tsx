@@ -65,6 +65,9 @@ const Footer = () => {
             <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Terms of Service
             </button>
+            <Link to="/admin" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Admin
+            </Link>
           </div>
         </div>
       </div>
